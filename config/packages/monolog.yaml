@@ -2,14 +2,14 @@ monolog:
     channels:
         - deprecation
         - graylog
-#    handlers:
-#        graylog:
-#            type: gelf
-#            level: debug
-#            channels: ["graylog"]
-#            publisher:
-#                id: Gelf\PublisherInterface
-#            formatter: Monolog\Formatter\GelfMessageFormatter
+    handlers:
+        graylog:
+            type: gelf
+            level: debug
+            channels: ["graylog"]
+            publisher:
+                id: Gelf\PublisherInterface
+            formatter: Monolog\Formatter\GelfMessageFormatter
 
 when@dev:
     monolog:

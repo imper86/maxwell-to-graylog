@@ -5,8 +5,10 @@
     "prefer-stable": true,
     "require": {
         "php": ">=8.2",
+        "ext-amqp": "*",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "enqueue/dsn": "^0.10.8",
         "graylog2/gelf-php": "^2.0",
         "snc/redis-bundle": "^4.6",
         "symfony/console": "6.2.*",
