@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "graylog2/gelf-php": "^2.0",
+        "snc/redis-bundle": "^4.6",
         "symfony/console": "6.2.*",
         "symfony/dotenv": "6.2.*",
         "symfony/flex": "^2",
