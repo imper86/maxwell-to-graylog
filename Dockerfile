@@ -1,5 +1,7 @@
 FROM php:8.2-cli
 
+ENV APP_ENV=prod
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends supervisor tzdata git libzip-dev zip && \
     apt-get clean && \
