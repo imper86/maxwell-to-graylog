@@ -48,10 +48,12 @@ final class RunCommand extends Command
             if ($log = $this->maxwellLogProvider->get()) {
                 $this->graylogLogger->info(
                     sprintf(
-                        '[%s] %s %s',
+                        '[%s] %s %s %s %s',
                         date('Y-m-d H:i:s', (int) $log['ts']),
                         $log['database'] ?? null,
+                        $log['table'] ?? null,
                         $log['type'] ?? null,
+                        $log['primary_key'][0] ?? null,
                     ),
                     $log,
                 );
