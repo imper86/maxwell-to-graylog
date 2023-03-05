@@ -60,6 +60,8 @@ final class RunCommand extends Command
             }
         }
 
+        sleep(1);
+
         return 0;
     }
 }
