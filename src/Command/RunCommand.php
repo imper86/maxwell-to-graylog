@@ -12,6 +12,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+
 use function date;
 use function sleep;
 use function sprintf;
@@ -25,6 +27,7 @@ final class RunCommand extends Command
     public function __construct(
         private readonly MaxwellLogProvider $maxwellLogProvider,
         private readonly LoggerInterface $graylogLogger,
+        private readonly ParameterBagInterface $parameterBag,
     ) {
         parent::__construct();
     }
@@ -36,13 +39,16 @@ final class RunCommand extends Command
             'm',
             InputOption::VALUE_OPTIONAL,
             'How many messages worker should consume',
-            100,
         );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $messagesCount = (int) $input->getOption('messages');
+
+        if (0 === $messagesCount) {
+            $messagesCount = $this->parameterBag->get('worker.messages');
+        }
 
         for ($i = 0; $i < $messagesCount; $i++) {
             if ($log = $this->maxwellLogProvider->get()) {

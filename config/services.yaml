@@ -7,6 +7,7 @@ parameters:
     app.name: '%env(APP_NAME)%'
     gelf_amqp_dsn: '%env(GELF_AMQP_DSN)%'
     redis_key: '%env(REDIS_KEY)%'
+    worker.messages: '%env(int:WORKER_MESSAGES)%'
 
 services:
     # default configuration for services in *this* file
